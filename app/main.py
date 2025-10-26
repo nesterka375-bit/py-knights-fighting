@@ -6,28 +6,17 @@ def battle(knights_config: dict) -> dict:
     # BATTLE PREPARATIONS:
 
     # lancelot
-    lancelot = battle_preparation(knights_config["lancelot"])
-
-    # arthur
-    arthur = battle_preparation(knights_config["arthur"])
-
-    # mordred
-    mordred = battle_preparation(knights_config["mordred"])
-
-    # red_knight
-    red_knight = battle_preparation(knights_config["red_knight"])
-
-    # BATTLE:
+    knights_list = []
+    for knight in knights_config:
+        knights_config[knight] = battle_preparation(knights_config[knight])
+        knights_list.append(knights_config[knight])
 
     # 1 Lancelot vs Mordred:
-    fight_1 = fight(lancelot, mordred)
+    fight_1 = fight(knights_list[0], knights_list[2])
 
     # 2 Arthur vs Red Knight:
-    fight_2 = fight(arthur, red_knight)
+    fight_2 = fight(knights_list[1], knights_list[3])
 
     fight_1.update(fight_2)
     # Return battle results:
     return fight_1
-
-
-print(battle)
