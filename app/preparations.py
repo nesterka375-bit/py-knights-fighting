@@ -1,6 +1,3 @@
-# from app.knights import knights
-
-
 def battle_preparation(knight: dict) -> dict:
 
     # apply armour
